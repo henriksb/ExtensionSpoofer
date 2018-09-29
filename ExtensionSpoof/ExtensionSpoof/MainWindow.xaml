@@ -1,0 +1,22 @@
+﻿<Window x:Class="MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="File Spoofer" Height="350" Width="525" ResizeMode="NoResize" Loaded="Main">
+    <Grid>
+        <TextBox x:Name="NameInput" HorizontalAlignment="Left" Height="23" Margin="72,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243"/>
+        <Label Content="File Spoofer&#xD;&#xA;&#xA;" Margin="98,-5,98,244" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="63" FontSize="36"/>
+        <ComboBox x:Name="SpoofExtension" Margin="315,95,138,0" VerticalAlignment="Top" Height="23" IsReadOnly="True"/>
+        <TextBox x:Name="OutputName" HorizontalAlignment="Center" Height="23" Margin="0,260,0,36" TextWrapping="Wrap" Text="[OUTPUT NAME]" VerticalAlignment="Center" Width="517" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" SelectionOpacity="0" BorderThickness="0"/>
+        <Image x:Name="IconImage" Height="100" Margin="208,160,208,0" VerticalAlignment="Top" Source="img/blankfile.ico"/>
+        <Button x:Name="GenerateButton" Content="Generate" Margin="208,288,208,0" VerticalAlignment="Top"/>
+        <Button x:Name="OpenFile" Content="Open file" Margin="222,135,222,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="CurrentFile" HorizontalAlignment="Left" Height="16" Margin="0,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="518" FontSize="10" IsReadOnly="True" BorderBrush="{x:Null}" BorderThickness="0" Text="Current file: None" TextAlignment="Center"/>
+        <ComboBox x:Name="SourceExtension" Margin="0,95,72,0" IsReadOnly="True" HorizontalAlignment="Right" Width="66" Height="23" VerticalAlignment="Top"/>
+        <Label Content="Spoof" HorizontalAlignment="Left" Margin="315,72,0,0" VerticalAlignment="Top" Width="66" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="24" Opacity="0.5"/>
+        <Label Content="Source" HorizontalAlignment="Left" Margin="381,72,0,0" VerticalAlignment="Top" Width="66" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="23" Opacity="0.5"/>
+
+    </Grid>
+</Window>
