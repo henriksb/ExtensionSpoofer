@@ -92,5 +92,7 @@ Class MainWindow
 
         Iconchanger.InjectIcon(CurrentFile.Text, IconFolderName + "\" + SpoofExtension.Text + ".ico")
         My.Computer.FileSystem.RenameFile(CurrentFile.Text, SpoofName)
+
+        MessageBox.Show("Successfully spoofed file!", "Success", MessageBoxButton.OK, MessageBoxImage.Information)
     End Sub
 End Class
