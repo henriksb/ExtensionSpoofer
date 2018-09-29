@@ -15,6 +15,6 @@ Below is a picture of some decently creative spoof names I came up with:
 (Old GIF. More more features are present in the program)
 ![alt text](https://raw.githubusercontent.com/henriksb/ExtensionSpoofer/master/UsageGIF.gif)
 
-Click [here](https://github.com/henriksb/ExtensionSpoofer/raw/master/FileSpoofer.exe) to download pre-compiled executable
+Click [here](https://github.com/henriksb/ExtensionSpoofer/releases/download/1/FileSpoofer.exe) to download pre-compiled executable
 
 Adding new icons is extremely easy, simply add the icon in the icons folder with the name of the extension. Meaning, if you have an 'exe' icon, name it 'exe.ico' and put it in the folder.
