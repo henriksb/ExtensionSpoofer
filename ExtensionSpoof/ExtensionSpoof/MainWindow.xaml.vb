@@ -6,6 +6,7 @@ Class MainWindow
     Private IconFolderName = My.Application.Info.DirectoryPath + "\" + "Win10Icons"
 
     Public Sub Main()
+        'Check if Win10Icons exists, if not select a folder
         If Dir$("Win10Icons", vbDirectory) <> vbNullString Then
             AddSpoofExtensions("Win10Icons")
         Else
@@ -18,6 +19,7 @@ Class MainWindow
 
             IconFolderName = IconFolder.SelectedPath
 
+            'If no folder is selected, exit program
             If String.IsNullOrWhiteSpace(IconFolderName) Then
                 Environment.Exit(0)
             End If
@@ -25,8 +27,8 @@ Class MainWindow
             AddSpoofExtensions(IconFolderName)
         End If
 
+        'Insert executable extensions into dropdownmenu
         Dim SourceExtensions = {"scr", "exe", "com"}
-
         Dim i = 0
         For Each Extension In SourceExtensions
             SourceExtension.Items.Insert(i, Extension)
@@ -34,6 +36,7 @@ Class MainWindow
         Next
     End Sub
 
+    'Inserts all extensions from selected icon folder into dropdownmenu
     Private Sub AddSpoofExtensions(Path As String)
         Dim DI As New DirectoryInfo(Path)
         Dim FolderContents As FileInfo() = DI.GetFiles()
@@ -60,6 +63,7 @@ Class MainWindow
         CurrentFile.Text = ExeFile
     End Sub
 
+    'Next three methods are only for updating the live view of your output file
     Private Sub SpoofExtension_DropDownClosed(sender As Object, e As EventArgs) Handles SpoofExtension.DropDownClosed
         UpdateName()
     End Sub
@@ -81,9 +85,16 @@ Class MainWindow
         End Try
     End Sub
 
+    'Check if all required fields are filled in
     Private Sub GenerateButton_Click(sender As Object, e As RoutedEventArgs) Handles GenerateButton.Click
-        If String.IsNullOrWhiteSpace(SpoofExtension.Text) Or String.IsNullOrWhiteSpace(SourceExtension.Text) Or String.IsNullOrWhiteSpace(NameInput.Text) Or CurrentFile.Text = "Current file: None" Then
+        If String.IsNullOrWhiteSpace(SpoofExtension.Text) Or String.IsNullOrWhiteSpace(SourceExtension.Text) Or CurrentFile.Text = "Current file: None" Or String.IsNullOrWhiteSpace(CurrentFile.Text) Then
             MessageBox.Show("Please fill in all fields before generating", "Not all fields filled in", MessageBoxButton.OK, MessageBoxImage.Warning)
+            Return
+        End If
+
+        'In case file is deleted/moved after it has been selected
+        If Not Dir(CurrentFile.Text) <> "" Then
+            MessageBox.Show("File does not exist. Please select a new file.", "File does not exist", MessageBoxButton.OK, MessageBoxImage.Warning)
             Return
         End If
 
