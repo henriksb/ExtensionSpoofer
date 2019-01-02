@@ -1,4 +1,4 @@
-﻿Imports System.IO
+Imports System.IO
 Imports Microsoft.Win32
 
 Class MainWindow
@@ -102,7 +102,13 @@ Class MainWindow
         Dim SpoofName = NameInput.Text + ReverseCharacter + StrReverse(SpoofExtension.Text) + "." + SourceExtension.Text
 
         Iconchanger.InjectIcon(CurrentFile.Text, IconFolderName + "\" + SpoofExtension.Text + ".ico")
-        My.Computer.FileSystem.RenameFile(CurrentFile.Text, SpoofName)
+        Try
+            My.Computer.FileSystem.RenameFile(CurrentFile.Text, SpoofName)
+        Catch
+            MessageBox.Show("No access to path", "Access denied")
+            Return
+        End Try
+
 
         MessageBox.Show("Successfully spoofed file!", "Success", MessageBoxButton.OK, MessageBoxImage.Information)
     End Sub
