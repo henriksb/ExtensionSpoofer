@@ -18,6 +18,7 @@ More file extensions have identical functionalities to the .exe extension, namel
 
 # 📷 Some spoofed files
 ![alt text](https://raw.githubusercontent.com/henriksb/ExtensionSpoofer/master/Spoof.png)
+
 (You cannot change the icon of .com files)
 
 
