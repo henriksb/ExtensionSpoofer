@@ -1,5 +1,3 @@
-# FileSpoofer
-
 # 📃 What is FileSpoofer?
 A simple program with a graphical user interface to spoof file extensions and icons. The program relies on the right-to-left override character (U+202E), which essentially mirrors all characters written after it. Below is an example of how the character works:
 
