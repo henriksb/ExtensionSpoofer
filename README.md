@@ -7,8 +7,6 @@ test_application[RIGHT_TO_LEFT_CHARACTER]gnp.exe
 
 test_applicationexe.png
 
-In addition to the extension seemingly being changed, the executable icon has changed to one matching the fake extension.
-
 The program allows the user to choose between .exe, .scr, and .com extensions, which are all similar in functionality to .exe. The .com and .scr extensions are often not well known, which makes it easier for the program to seem authentic. Many people know about the right-to-left override character and are thus very aware of this attack. Most people do, however, not know about .com and .scr and their similar functionality to .exe. Even regular computer users get suspicious of the exe ending, as there are not many words (if any) ending with exe.
 
 ## 🎥 GIF of software
