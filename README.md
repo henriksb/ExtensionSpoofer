@@ -1,5 +1,5 @@
-# 📃 What is FileSpoofer?
-FileSpoofer is a graphical user interface software designed for changing file extensions and icons. It works by using the right-to-left override character (U+202E) that mirrors all characters written after it, thus allowing the user to manipulate the file extension without changing the actual file. With this, the file name appears as if the extension has been changed, while the executable icon is also changed to match the fake extension. Below is an example of how the character works:
+# 📃 What is ExtensionSpoofer?
+ExtensionSpoofer is a graphical user interface software designed for changing file extensions and icons. It works by using the right-to-left override character (U+202E) that mirrors all characters written after it, thus allowing the user to manipulate the file extension without changing the actual file. With this, the file name appears as if the extension has been changed, while the executable icon is also changed to match the fake extension. Below is an example of how the character works:
 
 test_application[RIGHT_TO_LEFT_CHARACTER]gnp.exe
 
