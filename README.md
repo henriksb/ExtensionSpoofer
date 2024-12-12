@@ -26,3 +26,6 @@ Adding new icons is extremely easy. Add the icon in the icons folder with the na
 
 ## ❗ Notice
 It is important to note that using the software may trigger Windows Defender to start changing the name of the program randomly with a .tmp extension. To avoid this, the user can either disable Windows Defender or whitelist the program.
+
+## TODO
+- Automatically convert images to .ico
