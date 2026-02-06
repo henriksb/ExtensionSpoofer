@@ -1,31 +1,73 @@
 # 📃 What is ExtensionSpoofer?
-ExtensionSpoofer is a graphical user interface software designed for changing file extensions and icons. It works by using the right-to-left override character (U+202E) that mirrors all characters written after it, thus allowing the user to manipulate the file extension without changing the actual file. With this, the file name appears as if the extension has been changed, while the executable icon is also changed to match the fake extension. Below is an example of how the character works:
+ExtensionSpoofer is a tool for manipulating file extensions and icons in order to disguise executable files. It uses the Unicode Right-to-Left Override character (U+202E), which reverses the display order of all characters that follow it. This makes it possible to visually alter a file's extension without changing its actual file type.
 
-test_application[RIGHT_TO_LEFT_CHARACTER]gnp.exe
+As a result, the filename appears to have a harmless extension, while the underlying file remains executable. The program also replaces the file icon to match the spoofed extension, further increasing the illusion.
 
-..and this results in the file name looking like:
+**Example**
+Original filename:
+`test_application[RIGHT_TO_LEFT_OVERRIDE]gnp.exe`
 
-test_applicationexe.png
+Displayed filename:
+`test_applicationexe.png`
 
-The program allows the user to choose between .exe, .scr, and .com extensions, which are all similar in functionality to .exe. The .com and .scr extensions are often not well known, which makes it easier for the program to seem authentic. Many people know about the right-to-left override character and are thus very aware of this attack. Most people do, however, not know about .com and .scr and their similar functionality to .exe. Even regular computer users get suspicious of the exe ending, as there are not many words (if any) ending with exe.
+Although the file appears to be a PNG image, it is still an executable.
+
+# ⚙️ Supported Extensions
+
+ExtensionSpoofer currently supports the following executable formats:
+- .exe
+- .scr
+- .com
+
+While `.exe` files are widely recognized as potentially dangerous, `.scr` and `.com` are less well known to many users, despite having similar execution behavior. This can make disguised files appear more legitimate, especially to less experienced users.
+
+Although awareness of the right-to-left override technique has increased, many users remain unfamiliar with alternative executable extensions, which is why this approach can still be effective.
 
 ## 🎥 GIF of software
 ![alt text](https://raw.githubusercontent.com/henriksb/ExtensionSpoofer/master/UsageGIF.gif)
 
 ## 📷 Some spoofed files
 ![alt text](https://raw.githubusercontent.com/henriksb/ExtensionSpoofer/master/Spoof.png)
-
-(You cannot change the icon of .com files)
+> Note: The icon of .com files cannot be modified.
 
 
 # 📁 Download and usage
 Click [here](https://github.com/henriksb/ExtensionSpoofer/releases/download/1/ExtensionSpoof.exe) to download a pre-compiled executable.
-You will also need the [Win10Icons](https://github.com/henriksb/ExtensionSpoofer/tree/master/Win10Icons) folder with the icons for the program to work correctly. Using regular images instead of .ico files will not work. After you have downloaded the executable and icon files, everything is finished, and the program is ready to use.
+You will also need the [Win10Icons](https://github.com/henriksb/ExtensionSpoofer/tree/master/Win10Icons) folder with the icons for the program to work correctly. 
 
-Adding new icons is extremely easy. Add the icon in the icons folder with the name of the extension. Meaning, if you have an 'exe' icon, name it 'exe.ico' and put it in the folder. Make sure they are an actual .ico file! Renaming "example.png" to "example.ico" will not work. I will be adding an ico converter soon.
+**Important notes:**
+- The icon files must be in `.ico` format
+- Standard image formats (PNG, JPG, etc.) will not work, even if renamed
+- The application will not function correctly without valid `.ico` files
 
-## ❗ Notice
-It is important to note that using the software may trigger Windows Defender to start changing the name of the program randomly with a .tmp extension. To avoid this, the user can either disable Windows Defender or whitelist the program.
+After downloading and extracting the files, the program is ready to use.
 
-## TODO
+## 🎨 Adding Custom Icons
+
+Adding new icons is straightforward:
+
+1. Place your .ico file in the icons folder
+2. Name the file after the extension it represents
+
+Example:
+```
+exe.ico
+pdf.ico
+txt.ico
+```
+
+Make sure the file is a valid ICO file. Simply renaming an image file to `.ico` is not sufficient.
+
+An automatic image-to-ICO converter is planned for a future update.
+
+# ❗ Notice
+Some antivirus solutions, including Windows Defender, may flag or interfere with this software. In certain cases, Defender may automatically rename the executable with a `.tmp` extension.
+
+To prevent this behavior, you may need to:
+- Add the program to the antivirus exclusion list, or
+- Temporarily disable real-time protection
+
+Use these options at your own discretion.
+
+# 📝 TODO
 - Automatically convert images to .ico
