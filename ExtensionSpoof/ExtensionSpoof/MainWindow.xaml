@@ -1,22 +1,94 @@
-﻿<Window x:Class="MainWindow"
+<Window x:Class="MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="File Spoofer" Height="350" Width="525" ResizeMode="NoResize" Loaded="Main">
-    <Grid>
-        <TextBox x:Name="NameInput" HorizontalAlignment="Left" Height="23" Margin="72,95,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243"/>
-        <Label Content="File Spoofer&#xD;&#xA;&#xA;" Margin="98,-5,98,244" VerticalAlignment="Center" FontFamily="Segoe UI Semibold" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="63" FontSize="36"/>
-        <ComboBox x:Name="SpoofExtension" Margin="315,95,138,0" VerticalAlignment="Top" Height="23" IsReadOnly="True"/>
-        <TextBox x:Name="OutputName" HorizontalAlignment="Center" Height="23" Margin="0,260,0,36" TextWrapping="Wrap" Text="[OUTPUT NAME]" VerticalAlignment="Center" Width="517" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" IsReadOnly="True" SelectionOpacity="0" BorderThickness="0"/>
-        <Image x:Name="IconImage" Height="100" Margin="208,160,208,0" VerticalAlignment="Top" Source="img/blankfile.ico"/>
-        <Button x:Name="GenerateButton" Content="Generate" Margin="208,288,208,0" VerticalAlignment="Top"/>
-        <Button x:Name="OpenFile" Content="Open file" Margin="222,135,222,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="CurrentFile" HorizontalAlignment="Left" Height="16" Margin="0,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="518" FontSize="10" IsReadOnly="True" BorderBrush="{x:Null}" BorderThickness="0" Text="Current file: None" TextAlignment="Center"/>
-        <ComboBox x:Name="SourceExtension" Margin="0,95,72,0" IsReadOnly="True" HorizontalAlignment="Right" Width="66" Height="23" VerticalAlignment="Top"/>
-        <Label Content="Spoof" HorizontalAlignment="Left" Margin="315,72,0,0" VerticalAlignment="Top" Width="66" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="24" Opacity="0.5"/>
-        <Label Content="Source" HorizontalAlignment="Left" Margin="381,72,0,0" VerticalAlignment="Top" Width="66" FontSize="10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="23" Opacity="0.5"/>
+        Title="Extension Spoofer" Height="520" Width="860" MinHeight="480" MinWidth="760" Background="#FF101216" Loaded="Main" AllowDrop="True">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <Border Grid.Row="0" Background="#FF171A21" CornerRadius="12" Padding="16" Margin="0,0,0,16">
+            <StackPanel>
+                <TextBlock Text="Extension Spoofer" FontSize="30" FontWeight="SemiBold" Foreground="#FFF5F7FB"/>
+                <TextBlock Text="Cleaner workflow: pick file, choose visible extension/icon, preview result, then generate." Margin="0,6,0,0" Foreground="#FFB5C0D3"/>
+                <TextBlock x:Name="StatusText" Text="Ready" Margin="0,10,0,0" Foreground="#FF8BD0A1" FontWeight="SemiBold"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Background="#FF171A21" CornerRadius="12" Padding="16" Margin="0,0,0,16">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel>
+                    <TextBlock Text="Source file" Foreground="#FFC7D2E8"/>
+                    <TextBox x:Name="CurrentFile" Margin="0,6,0,0" Height="30" IsReadOnly="True" Text="No file selected" Background="#FF0F1117" Foreground="#FFF5F7FB" BorderBrush="#FF2A3142"/>
+                    <TextBlock Text="Tip: You can also drag &amp; drop a file onto this window." Margin="0,6,0,0" Foreground="#FF8592AB" FontSize="11"/>
+                </StackPanel>
+                <Button x:Name="OpenFile" Grid.Column="1" Content="Browse file" Margin="16,22,0,0" Width="120" Height="30"/>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.2*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Background="#FF171A21" CornerRadius="12" Padding="16" Margin="0,0,16,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="130"/>
+                        <ColumnDefinition Width="130"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="Filename setup" Foreground="#FFC7D2E8" FontWeight="SemiBold"/>
+                    <TextBox x:Name="NameInput" Grid.Row="1" Grid.Column="0" Margin="0,8,8,0" Height="30" Background="#FF0F1117" Foreground="#FFF5F7FB" BorderBrush="#FF2A3142"/>
+                    <ComboBox x:Name="SpoofExtension" Grid.Row="1" Grid.Column="1" Margin="0,8,8,0" Height="30"/>
+                    <ComboBox x:Name="SourceExtension" Grid.Row="1" Grid.Column="2" Margin="0,8,0,0" Height="30"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="Visible ext" Margin="0,4,8,0" Foreground="#FF8592AB" HorizontalAlignment="Center"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Text="Real ext" Margin="0,4,0,0" Foreground="#FF8592AB" HorizontalAlignment="Center"/>
+
+                    <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Text="Output folder" Margin="0,16,0,0" Foreground="#FFC7D2E8" FontWeight="SemiBold"/>
+                    <Grid Grid.Row="4" Grid.ColumnSpan="3" Margin="0,8,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="OutputFolder" Height="30" IsReadOnly="True" Background="#FF0F1117" Foreground="#FFF5F7FB" BorderBrush="#FF2A3142"/>
+                        <Button x:Name="BrowseOutputFolder" Grid.Column="1" Content="Browse" Margin="12,0,0,0" Width="90" Height="30"/>
+                    </Grid>
+                </Grid>
+            </Border>
+
+            <Border Grid.Column="1" Background="#FF171A21" CornerRadius="12" Padding="16">
+                <StackPanel>
+                    <TextBlock Text="Live preview" Foreground="#FFC7D2E8" FontWeight="SemiBold"/>
+                    <Image x:Name="IconImage" Height="84" Width="84" Margin="0,12,0,10" Source="img/blankfile.ico" HorizontalAlignment="Center"/>
+                    <TextBox x:Name="OutputName" Height="54" IsReadOnly="True" TextWrapping="Wrap" BorderThickness="0" Background="#00000000" Foreground="#FFF5F7FB" HorizontalContentAlignment="Center" TextAlignment="Center"/>
+                    <CheckBox x:Name="CopyMode" Content="Create copy instead of renaming original" IsChecked="True" Foreground="#FFC7D2E8" Margin="0,10,0,0"/>
+                    <Button x:Name="GenerateButton" Content="Generate spoofed file" Height="34" Margin="0,14,0,0"/>
+                    <Button x:Name="OpenOutputFolder" Content="Open output folder" Height="30" Margin="0,8,0,0"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <TextBlock Grid.Row="3" Margin="4,14,0,0" Foreground="#FF8592AB" FontSize="11" Text="Only use on files you own and for defensive/testing purposes."/>
     </Grid>
 </Window>
