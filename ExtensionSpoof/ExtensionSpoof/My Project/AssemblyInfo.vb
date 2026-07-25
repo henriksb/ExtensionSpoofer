@@ -11,11 +11,11 @@ Imports System.Windows
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("ExtensionSpoof")>
-<Assembly: AssemblyDescription("")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("ExtensionSpoof")>
-<Assembly: AssemblyCopyright("Copyright ©  2018")>
+<Assembly: AssemblyTitle("ExtensionSpoofer")>
+<Assembly: AssemblyDescription("Educational utility demonstrating spoofed Windows file names and icons.")>
+<Assembly: AssemblyCompany("ExtensionSpoofer")>
+<Assembly: AssemblyProduct("ExtensionSpoofer")>
+<Assembly: AssemblyCopyright("Copyright © 2018-2026")>
 <Assembly: AssemblyTrademark("")>
 <Assembly: ComVisible(false)>
 
@@ -55,5 +55,5 @@ Imports System.Windows
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")>
 
-<Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyVersion("1.1.0.0")>
+<Assembly: AssemblyFileVersion("1.1.0.0")>
