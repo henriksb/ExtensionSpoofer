@@ -47,4 +47,5 @@ Always use responsibly and only in authorized environments.
 ## Screenshots
 
 ![Usage animation](https://raw.githubusercontent.com/henriksb/ExtensionSpoofer/master/UsageGIF.gif)
+
 ![Spoofed file examples](https://raw.githubusercontent.com/henriksb/ExtensionSpoofer/master/Spoof.png)
